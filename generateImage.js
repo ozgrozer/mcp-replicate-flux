@@ -5,7 +5,7 @@ const { writeFile } = require('node:fs/promises')
 
 module.exports = async prompt => {
   const timestamp = Math.floor(Date.now() / 1000)
-  const outputPath = path.join(__dirname, 'output', `${timestamp}.webp`)
+  const outputPath = path.join(__dirname, 'output', `${timestamp}.jpg`)
 
   const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN
@@ -18,8 +18,8 @@ module.exports = async prompt => {
       num_outputs: 1,
       megapixels: '1',
       output_quality: 80,
-      aspect_ratio: '1:1',
-      output_format: 'webp',
+      aspect_ratio: '16:9',
+      output_format: 'jpg',
       num_inference_steps: 4
     }
   })
