@@ -1,7 +1,7 @@
-require('dotenv').config()
 const path = require('path')
 const Replicate = require('replicate')
 const { writeFile } = require('node:fs/promises')
+require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 
 module.exports = async prompt => {
   const timestamp = Math.floor(Date.now() / 1000)
