@@ -3,9 +3,8 @@ const Replicate = require('replicate')
 const { writeFile } = require('node:fs/promises')
 require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 
-module.exports = async prompt => {
-  const timestamp = Math.floor(Date.now() / 1000)
-  const outputPath = path.join(__dirname, 'output', `${timestamp}.jpg`)
+module.exports = async ({ prompt, filename }) => {
+  const outputPath = path.join(__dirname, 'output', filename)
 
   const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN
