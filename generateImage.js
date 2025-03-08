@@ -5,7 +5,7 @@ const { writeFile } = require('node:fs/promises')
 
 module.exports = async prompt => {
   const timestamp = Math.floor(Date.now() / 1000)
-  const outputPath = path.join(__dirname, output, `${timestamp}.webp`)
+  const outputPath = path.join(__dirname, 'output', `${timestamp}.webp`)
 
   const replicate = new Replicate({
     auth: process.env.REPLICATE_API_TOKEN
